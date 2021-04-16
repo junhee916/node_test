@@ -9,8 +9,14 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
+
+    const newProduct = {
+        name : req.body.productName,
+        price : req.body.productPrice
+    }
     res.json({
-        message: "resister product"
+        message: "resister product",
+        productInfo : newProduct
     })
 })
 

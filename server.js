@@ -4,10 +4,17 @@
 // 3. PORT를 연결해서 5000, 7000 포트가 사용하기 좋다.
 // 4. express안에 listen이 있어서 PORT를 실행할 수 있게 하고 console로 test를 해본다.
 const express = require('express')
+const bodyParser = require("body-parser")
 const app = express()
 
 const productRouter = require("./router/product")
 const orderRouter = require('./router/order')
+
+// middleware
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended : false}))
+
+
 
 app.use("/product", productRouter)
 app.use("/order", orderRouter)
