@@ -6,11 +6,11 @@
 const express = require('express')
 const app = express()
 
-app.get("/test", (req, res) => {
-    res.json({
-        message : "get data"
-    })
-})
+const productRouter = require("./router/product")
+const orderRouter = require('./router/order')
+
+app.use("/product", productRouter)
+app.use("/order", orderRouter)
 
 const PORT = 5000
 
